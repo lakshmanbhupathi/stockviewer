@@ -17,6 +17,14 @@ public class Quote {
     @Column(name = "quote")
     private String quote;
 
+    public Quote() {
+    }
+
+    public Quote(String userName, String quote) {
+        this.userName = userName;
+        this.quote = quote;
+    }
+
     public Integer getId() {
         return id;
     }
