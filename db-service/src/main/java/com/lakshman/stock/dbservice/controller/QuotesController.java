@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/rest/db")
+@RequestMapping("/rest/db/quote")
 public class QuotesController {
 
     private QuotesRepository quotesRepository;
@@ -39,5 +39,13 @@ public class QuotesController {
                 .forEach(quote -> quotesRepository.save(quote));
 
         return getQuote(request.getUserName());
+    }
+
+    @DeleteMapping("/delete/{username}")
+    public boolean delete(@PathVariable("username") final String userName){
+        List<Quote> quotes = quotesRepository.findByUserName(userName);
+        quotesRepository.deleteAll(quotes);
+
+        return getQuote(userName).isEmpty();
     }
 }
