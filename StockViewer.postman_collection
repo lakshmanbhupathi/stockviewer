@@ -1,0 +1,112 @@
+{
+	"variables": [],
+	"info": {
+		"name": "StockViewer",
+		"_postman_id": "fe320beb-249b-2bca-1c38-024a241ae30d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getQuotes",
+			"request": {
+				"url": "localhost:8300/rest/db/quote/john",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"key\":\"key1\",\n\t\"value\":\"valu12\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "AddQuotes",
+			"request": {
+				"url": "localhost:8300/rest/db/quote/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"john\",\n\t\"quotes\":[\n\t\t\"AAPL\",\n\t\t\"GOOG\"\n\t\t]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteQuotes",
+			"request": {
+				"url": "localhost:8300/rest/db/quote/delete/john",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getStock",
+			"request": {
+				"url": "localhost:8301/rest/stock/John",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Zuul gateway getStock",
+			"request": {
+				"url": "http://localhost:8303/api/stock-service/rest/stock/John",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Zuul gateway db service get quotes",
+			"request": {
+				"url": "http://localhost:8303/api/db-service/rest/db/quote/john",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Eureka dashboard",
+			"request": {
+				"url": "http://localhost:8302/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Eureka server dashboard.\nopen it in browser"
+			},
+			"response": []
+		}
+	]
+}
