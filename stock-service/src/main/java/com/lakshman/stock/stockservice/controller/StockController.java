@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,7 +29,9 @@ public class StockController {
     }
 
     @GetMapping("/{username}")
-    public List<StockQuoteData> getStocksFromUserName(@PathVariable("username") final String userName){
+    public List<StockQuoteData> getStocksFromUserName(@PathVariable("username") final String userName, HttpServletResponse response){
+
+        response.addHeader("Access-Control-Allow-Origin","*");
 
         ResponseEntity<List<String>> quoteResponse  = restTemplate.exchange("http://db-service/rest/db/quote/"+userName,
                 HttpMethod.GET,null, new ParameterizedTypeReference<List<String>>(){});
