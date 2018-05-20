@@ -3,21 +3,22 @@
 Demo application of Micro-services Architecture using Netflix OSS stack
 
 
-# Tech stack:
 
-Java 10
-Maven (build tool)
+Tech stack:
 
-Netflix OSS Stack
--Zuul Proxy (gateway)
--Eureka Client
--Eureka Server
+- Java 10
+- Maven (build tool)
 
--Spring boot 2.0.1
--Spring cloud
--Postman
--UI: Angular js
--DB: MySQL
+- Netflix OSS Stack
+ - Zuul Proxy (gateway)
+ - Eureka Client
+ - Eureka Server
+
+- Spring boot 2.0.1
+- Spring cloud
+- Postman
+- UI: Angular js
+- DB: MySQL
 -YahooFinance API
 
 Each modules is a deployable micro service
