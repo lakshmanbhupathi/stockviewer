@@ -1,8 +1,9 @@
-Stock Viewer 
+# Stock Viewer
 
 Demo application of Micro-services Architecture using Netflix OSS stack
 
-Tech stack:
+
+# Tech stack:
 
 Java 10
 Maven (build tool)
@@ -21,7 +22,11 @@ Netflix OSS Stack
 
 Each modules is a deployable micro service
 
-- db-service - For interactive with MySQL DB
-- stock-service - For pulling Stock Price from YahooFinance API
-- eureka-service - Service Registry for registering all micro services
-- zuul-gateway -
+- `db-service` - For interactive with MySQL DB
+- `stock-service` - For pulling Stock Price from YahooFinance API
+- `eureka-service` - Service Registry for registering all micro services
+- `zuul-gateway` - gateway service
+- `ui` - Angular JS UI
+
+## Architecture Diagram:
+![Architecture](Architecture.png)
