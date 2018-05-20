@@ -1,6 +1,7 @@
 package com.lakshman.stock.stockservice.controller;
 
 
+import com.lakshman.stock.stockservice.dto.StockQuoteData;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,7 @@ public class StockController {
     }
 
     @GetMapping("/{username}")
-    public List<Stock> getStocksFromUserName(@PathVariable("username") final String userName){
+    public List<StockQuoteData> getStocksFromUserName(@PathVariable("username") final String userName){
 
         ResponseEntity<List<String>> quoteResponse  = restTemplate.exchange("http://db-service/rest/db/quote/"+userName,
                 HttpMethod.GET,null, new ParameterizedTypeReference<List<String>>(){});
@@ -35,8 +36,12 @@ public class StockController {
 
         return quotes.stream()
                 .map(quote -> {
-                    return getStocks(quote);
+                    return getQuotePrices(quote);
                 }).collect(Collectors.toList());
+    }
+
+    private StockQuoteData getQuotePrices(String quote) {
+        return new StockQuoteData(quote,getStocks(quote).getQuote().getPrice());
     }
 
     private Stock getStocks(String quote) {
