@@ -1,6 +1,6 @@
 # Stock Viewer
 
-Demo application of Micro-services Architecture using Netflix OSS stack
+Stock viewer application on Micro-services Architecture using Netflix OSS stack
 
 
 
